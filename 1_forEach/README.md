@@ -99,17 +99,14 @@ Try to write all of these exercises using .forEach() rather than `for` or `while
 1. Write a function called `average` that takes an array of numbers as a
    parameter and returns the *average* of those numbers.
 
-2. Write a function called `min` that finds the *smallest* number in an array of
-   numbers.
-
-3. Write a function `shortestWord` that works like `longestWord`, but returns
+2. Write a function `shortestWord` that works like `longestWord`, but returns
    the *shortest* word instead.
 
-4. Write a function `countChar` that takes two arguments: any string, and a
+3. Write a function `countChar` that takes two arguments: any string, and a
    *character* (string of one letter), and returns the number of times that the
    character occurs in the string.
 
-5. Write a function `evenLengthWords` that takes an array of *strings* as an
+4. Write a function `evenLengthWords` that takes an array of *strings* as an
    argument, and returns an array of just the words that have an even length.
 
 ### Advanced
