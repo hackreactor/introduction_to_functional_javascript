@@ -1,4 +1,4 @@
-# Part III: filter
+# Part IV: filter
 
 Before getting started, make sure that you have a JavaScript console open (like <a href="http://www.repl.it/languages/javascript" target="_blank">repl.it</a>), so you can complete these exercises.
 
@@ -27,7 +27,7 @@ onlyEvens([25, 16, 12, 99, 8, 37]); // => [16, 12, 8]
 3. Write a function that takes an array of strings and returns an array of just the words that have an odd number of characters:
 
 ```js
-var onlyOddWords(words) {
+var onlyOddWords = function(words) {
   // your code here
 };
 
@@ -54,7 +54,7 @@ var characters = [
   { character: 'Green Lantern', hero: true }
 ]
 
-var isHero =  function(chars) {
+var isHero = function(chars) {
   // your code here
 };
 ```
