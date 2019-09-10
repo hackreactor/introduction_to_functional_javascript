@@ -27,4 +27,4 @@ You should throroughly read all of code in front of you and aim to understand li
 
 ## Slides
 
-The lesson slides for this workshop can be found [here](https://drive.google.com/open?id=1r9skMap9CD6NaO2wkj90UzQcEb3Hui1OYBH5Pb8_vxk).
+The lesson slides for this workshop can be found [here](https://docs.google.com/presentation/d/e/2PACX-1vQj7Bz4BsXkLt7C-vkUGXrXo7ovtbVWtkTNKeOR-8YrKil5p2xI1EHlbTYjOi9hLv7IEMU7otmm9VX2/pub?start=false&loop=false&delayms=60000).
