@@ -14,10 +14,16 @@ var sumImperative = function(array) {
   }
   return result;
 };
+sumImperative([5, 10, 15]); // => 30
 
 var sumDeclarative = function(array) {
-  // your code here
+  var result = 0;
+  array.forEach(function(number) {
+    result = result + number;
+  });
+  return result;
 };
+sumDeclarative([5, 10, 15]); // => 30
 ```
 
 2. Refactor the following imperative code to be declarative by using the `forEach()` native array method instead of a `for` loop:
@@ -32,17 +38,31 @@ var maxNumImperative = function(array) {
   }
   return max;
 };
+maxNumImperative([1, 2, 20, 4, 5]); // => 20
 
 var maxNumDeclarative = function(array) {
-  // your code here
+  var max = array[0];
+  array.forEach(function(number) {
+    if (number > max) {
+      max = number;
+    }
+  });
+  return max;
 };
+maxNumDeclarative([1, 2, 20, 4, 5]); // => 20
 ```
 
 3. Write a function called `min` that find the smallest number in an array of numbers and returns it.
 
 ```js
 var min = function(array) {
-  // your code here
+  var min = array[0];
+  array.forEach(function(number) {
+    if (number < min) {
+      min = number;
+    }
+  });
+  return min;
 };
 
 min([100, 54, 73, 8, 12, 3]); // => 3
@@ -52,9 +72,10 @@ min([100, 54, 73, 8, 12, 3]); // => 3
 
 ```js
 var printNames = function(names) {
-  // your code here
+  names.forEach(function(name) {
+    console.log(name);
+  });
 };
-
 printNames(['Tom', 'Jerry', 'Arnold', 'Casper']);
 ```
 
@@ -81,33 +102,118 @@ Try to write all of these exercises using .forEach() rather than `for` or `while
   Use `split` to write a function `longestWord` that takes a string as an
   argument and returns the longest word.
 
+  ```js
+  var longestWord = function(string) {
+    var words = string.split(' ');
+    var longestWord = words[0];
+    words.forEach(function(word) {
+      if (word.length > longestWord.length) {
+        longestWord = word;
+      }
+    });
+    return longestWord;
+  };
+  longestWord('Hello my name is Arnold'); // => 'Arnold'
+  ```
+
 2. Write a function `remove` that accepts an *array* and an *element*, and
    returns an array with all ocurrences of *element* removed.
 
-   ```js
-   function remove(array, element) {
-     // your code here
-   }
-   remove([1, 3, 6, 2, 3], 3); // => [1, 6, 2]
-   ```
+  ```js
+  var remove = function(array, element) {
+    var removed = [];
+    array.forEach(function(el) {
+      if (el !== element) {
+        removed.push(el);
+      }
+    });
+    return removed;
+  };
+  remove([1, 3, 6, 2, 3], 3); // => [1, 6, 2]
+  ```
 
 3. Write a function `evens` that accepts an array as an argument, and returns
    an array consisting of all of the *even* numbers in that array.
+  
+  ```js
+  var evens = function(numbers) {
+    var evenNums = [];
+    numbers.forEach(function(number) {
+      if (number % 2 === 0) {
+        evenNums.push(number);
+      }
+    });
+    return evenNums;
+  };
+  evens([1, 2, 3, 4, 5, 6, 7, 8]) // => [2, 4, 6, 8];
+  ```
 
 ### Exercises Continued
 
 1. Write a function called `average` that takes an array of numbers as a
    parameter and returns the *average* of those numbers.
+  
+  ```js
+  var average = function(numbers) {
+    var sum = 0;
+    numbers.forEach(function(number) {
+      sum = sum + number;
+    });
+    return sum / numbers.length; 
+  };
+  average([1, 2, 3, 4, 5]) // => 3;
+  ```
 
 2. Write a function `shortestWord` that works like `longestWord`, but returns
    the *shortest* word instead.
+  
+  ```js
+  var shortestWord = function(string) {
+    var words = string.split(' ');
+    var shortest = words[0];
+    words.forEach(function(word) {
+      if (word.length < shortest.length) {
+        shortest = word;
+      }
+    });
+    return shortest;
+  };
+  shortestWord('all your base are belong to us') // => 'to';
+  ```
 
 3. Write a function `countChar` that takes two arguments: any string, and a
    *character* (string of one letter), and returns the number of times that the
    character occurs in the string.
+  
+  ```js
+  var countChar = function(string, char) {
+    var occurances = 0;
+    var characters = string.split('');
+    characters.forEach(function(character) {
+      if (character === char) {
+        occurances = occurances + 1;
+      }
+    });
+    return occurances;
+  };
+  countChar('hello world', 'o') // => 2;
+  ```
 
 4. Write a function `evenLengthWords` that takes an array of *strings* as an
    argument, and returns an array of just the words that have an even length.
+
+  ```js
+  var evenLengthWords = function(strings) {
+    var result = [];
+    strings.forEach(function(string) {
+      if (string.length % 2 === 0) {
+        result.push(string);
+      }
+    });
+    return result;
+  };
+  evenLengthWords(['hello', 'world', 'I', 'am', 'here']) // => ['am', 'here'];
+  ```
 
 ### Advanced
 
@@ -116,10 +222,35 @@ Try to write all of these exercises using .forEach() rather than `for` or `while
    and use it to implement a function that accepts a string as an argument and
    returns that string *reversed*.
 
+  ```js
+  var reverseString = function(str) {
+    return str.split('').reverse().join('');
+  };
+  reverseString('hello') // => 'olleh';
+  ```
+
 2. Write a function `keep` that "keeps" certain elements in an array. The
    function will need to take *two* arguments, an array, and something else --
    the second argument will be what is used to determine which elements to keep.
+  
+  ```js
+  var keep = function(array, fn) {
+    var result = [];
+    array.forEach(function(element) {
+      if (fn(element) === true) {
+        result.push(element);
+      }
+    })
+    return result;
+  };
+  ```
 
    You should be able to use this function to write `evens`, `evenLengthWords`,
    a hypothetical `odds` function, or `oddLengthWords` *without changing the
    `keep` function*.
+
+  ```js
+  keep([1, 2, 3, 4, 5], function(el){
+	  return el % 2 === 0;
+  }); // => [2, 4]
+  ```
