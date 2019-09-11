@@ -11,10 +11,10 @@ var squared = function(numbers) {
   // your code here
 };
 
-squared([1, 2, 3, 4, 5]); // => [1, 4, 9, 14, 25]
+squared([1, 2, 3, 4, 5]); // => [1, 4, 9, 16, 25]
 ```
 
-2. Write a functionthat takes an array of words that are singular and returns an array of the same words pluralized:
+2. Write a function that takes an array of words that are singular and returns an array of the same words pluralized:
 
 ```js
 var pluralize = function(words) {
@@ -35,7 +35,7 @@ var songs = [
 
 var songsBy = function(songs) {
   // your code here
-}
+};
 
 songsBy(songs); // => ['Phenom by Alex Mali', 'Too Deep by dvsn', 'Firefly by Mura Masa']
 ```
@@ -59,7 +59,7 @@ var firstNames = function(users) {
 firstNames(users); // => ['Homer', 'Marge', 'Bart', 'Lisa', 'Maggie']
 ```
 
-4. Write a function that takes an array of user objects and returns an array with just the users' full names:
+5. Write a function that takes an array of user objects and returns an array with just the users' full names:
 
 ```js
 var users = [
@@ -77,7 +77,7 @@ var fullNames = function(users) {
 fullNames(users); // => ['Homer Simpson', 'Marge Simpson', 'Bart Simpson', 'Lisa Simpson', 'Maggie Simpson']
 ```
 
-5. Write a function that takes an array of user objects and returns an array of objects with just the users' full names:
+6. Write a function that takes an array of user objects and returns an array of objects with just the users' full names:
 
 ```js
 var users = [
@@ -95,7 +95,7 @@ var fullNameObjects = function(users) {
 fullNameObjects(users); // => [{ fullName: 'Homer Simpson' }, { fullName: 'Marge Simpson' }, { fullName: 'Bart Simpson' }, { fullName: 'Lisa Simpson' }, { fullName: 'Maggie Simpson' }]
 ```
 
-6. Write a function that takes an array of arrays that contain product information, and returns an array of objects with appropriate keys:
+7. Write a function that takes an array of arrays that contain product information, and returns an array of objects with appropriate keys:
 
 ```js
 var products =  [
@@ -117,7 +117,7 @@ toObject(products); // => [
 
 #### More Practice
 
-Map is often used to transform a data set to be more readable or usable. Take a look at the array of spell objects in spell.js (in this folder). Using that as your input data set:
+Map is often used to transform a data set to be more readable or usable. Take a look at the array of spell objects in spells.js (in this folder). Using that as your input data set:
 
 1. Clean up the data so it is more readable. Write a function that returns an array of spell objects, with each object containing the spell's name, description, and duration:
 * Each spell object should look like this:
