@@ -8,17 +8,21 @@ Before getting started, make sure that you have a JavaScript console open (like 
 
 ```js
 var squared = function(numbers) {
-  // your code here
+  return numbers.map(function(number) {
+    return number * number;
+  });
 };
 
-squared([1, 2, 3, 4, 5]); // => [1, 4, 9, 14, 25]
+squared([1, 2, 3, 4, 5]); // => [1, 4, 9, 16, 25]
 ```
 
-2. Write a functionthat takes an array of words that are singular and returns an array of the same words pluralized:
+2. Write a function that takes an array of words that are singular and returns an array of the same words pluralized:
 
 ```js
 var pluralize = function(words) {
-
+  return words.map(function(word) {
+    return word + 's';
+  });
 };
 
 pluralize(['dog', 'cat', 'worm', 'kyle']); // => ['dogs', 'cats', 'worms', 'kyles']
@@ -34,8 +38,10 @@ var songs = [
 ];
 
 var songsBy = function(songs) {
-  // your code here
-}
+  return songs.map(function(song) {
+    return song.song + ' by ' + song.artist;
+  });
+};
 
 songsBy(songs); // => ['Phenom by Alex Mali', 'Too Deep by dvsn', 'Firefly by Mura Masa']
 ```
@@ -53,7 +59,9 @@ var users = [
 ];
 
 var firstNames = function(users) {
-  // your code here
+  return users.map(function(user) {
+    return user.firstName;
+  });
 };
 
 firstNames(users); // => ['Homer', 'Marge', 'Bart', 'Lisa', 'Maggie']
@@ -71,7 +79,9 @@ var users = [
 ];
 
 var fullNames = function(users) {
-  // your code here
+  return users.map(function(user) {
+    return user.firstName + ' ' + user.lastName;
+  });
 };
 
 fullNames(users); // => ['Homer Simpson', 'Marge Simpson', 'Bart Simpson', 'Lisa Simpson', 'Maggie Simpson']
@@ -89,7 +99,9 @@ var users = [
 ];
 
 var fullNameObjects = function(users) {
-  // your code here
+  return users.map(function(user) {
+    return { fullName: user.firstName + ' ' + user.lastName };
+  });
 };
 
 fullNameObjects(users); // => [{ fullName: 'Homer Simpson' }, { fullName: 'Marge Simpson' }, { fullName: 'Bart Simpson' }, { fullName: 'Lisa Simpson' }, { fullName: 'Maggie Simpson' }]
@@ -105,7 +117,13 @@ var products =  [
 ]
 
 var toObject = function(products) {
-  // your code here
+  return products.map(function(product) {
+    return {
+      name: product[0],
+      price: product[1],
+      quantity: product[2]
+    };
+  });
 };
 
 toObject(products); // => [
@@ -117,7 +135,7 @@ toObject(products); // => [
 
 #### More Practice
 
-Map is often used to transform a data set to be more readable or usable. Take a look at the array of spell objects in spell.js (in this folder). Using that as your input data set:
+Map is often used to transform a data set to be more readable or usable. Take a look at the array of spell objects in spells.js (in this folder). Using that as your input data set:
 
 1. Clean up the data so it is more readable. Write a function that returns an array of spell objects, with each object containing the spell's name, description, and duration:
 * Each spell object should look like this:
@@ -129,6 +147,20 @@ Map is often used to transform a data set to be more readable or usable. Take a 
 }
 ```
 
+```js
+var cleanSpells = function(spells) {
+  return spells.map(function(spell) {
+    return {
+      name: spell.name,
+      descrption: spell.desc[0],
+      duration: spell.duration
+    };
+  });
+};
+
+cleanSpells(spells);
+```
+
 2. Write a function that returns an array of spell objects, with each object containing the spell's name and all of the classes and subclasses that can use the spell as subarrays:
 * Each spell object should look like this:
 ```js
@@ -137,4 +169,25 @@ Map is often used to transform a data set to be more readable or usable. Take a 
   classes: ['class-name-1', 'class-name-2'],
   subclasses: ['subclass-name-1', 'subclass-name-2']
 }
+```
+
+```js
+var spellClasses = function(spells) {
+  return spells.map(function(spell) {
+    var classes = spell.classes.map(function(cl) {
+      return cl.name;
+    });
+    var subclasses = spell.subclasses.map(function(subclass) {
+      return subclass.name;
+    });
+
+    return {
+      name: spell.name,
+      classes: classes,
+      subclasses: subclasses
+    };
+  });
+};
+
+spellClasses(spells);
 ```
