@@ -70,7 +70,7 @@ var spellNames = function(spells) {
 };
 ```
 
-2. Write a function that returns an array of spell objects whsoe level is higher than 1, with each object holding the spell name and level:
+2. Write a function that returns an array of spell objects that have a level higher than 1, with each object holding the spell name and level:
 {
   name: 'spell-name',
   level: 1+
