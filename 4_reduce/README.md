@@ -10,7 +10,9 @@ Try to implement the following functions using .reduce(). If you are having trou
 
 ```js
 var sum = function(numbers) {
-  // your code here
+  return numbers.reduce(function(sum, number) {
+    return sum + number;
+  }, 0);
 };
 
 sum([2, 4, 6]); // => 12
@@ -20,7 +22,9 @@ sum([2, 4, 6]); // => 12
 
 ```js
 var product = function(numbers) {
-  // your code here
+  return numbers.reduce(function(product, number) {
+    return product * number;
+  }, 1);
 };
 
 product([2, 4, 6]); // => 48
@@ -30,7 +34,12 @@ product([2, 4, 6]); // => 48
 
 ```js
 var stringConcat = function(strings) {
-  // your code here
+  return strings.reduce(function(sentence, string, i) {
+    if (i === 0) {
+      return sentence + string;
+    }
+    return sentence + ' ' + string;
+  }, '');
 };
 
 stringConcat(['Hello', 'my', 'name', 'is', 'Alexandra']); // => 'Hello my name is Alexandra'
@@ -47,7 +56,10 @@ var users = [
 ]
 
 var createEmailObject = function(users) {
-  // your code
+  return users.reduce(function(obj, user) {
+    obj[user.fullName] = user.email;
+    return obj;
+  }, {});
 };
 
 createEmailObject(users); // => {
@@ -66,11 +78,15 @@ Take a look at the array of spell objects in spell.js (in this folder). Using th
 
 ```js
 var spellNames = function(spells) {
-  // your code here
+  return spells.reduce(function(names, spell) {
+    return names.concat(spell.name);
+  }, []);
 };
+
+spellNames(spells);
 ```
 
-2. Write a function that returns an array of spell objects whsoe level is higher than 1, with each object holding the spell name and level:
+2. Write a function that returns an array of spell objects that have a level higher than 1, with each object holding the spell name and level:
 {
   name: 'spell-name',
   level: 1+
@@ -79,8 +95,18 @@ var spellNames = function(spells) {
 
 ```js
 var spellNames = function(spells) {
-  // your code here
+  return spells.reduce(function(acc, spell) {
+    if (spell.level > 1) {
+      return acc.concat({
+        name: spell.name,
+        level: spell.level
+      });
+    }
+    return acc;
+  }, []);
 };
+
+spellNames(spells);
 ```
 
 ## Challenge Mode
