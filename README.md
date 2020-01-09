@@ -1,6 +1,6 @@
-# Hack Reactor: Functional Programming in JavaScript
+# [Hack Reactor](https://www.hackreactor.com): Introduction to Functional JavaScript
 
-Welcome to Hack Reactor's Functional Programming in JavaScript Mini Bootcamp. You're here to solidify your understanding of functional programming concepts and apply them in JavaScript. In today's session we'll be covering the following topics:
+Welcome to Hack Reactor's Introduction to Functional JavaScript. You're here to solidify your understanding of functional programming concepts and apply them in JavaScript. In today's session we'll be covering the following topics:
 
 - Part I: Paradigm & Principles
 - Part II: ForEach
